@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+/* Frontend Routes */
+
 Route::get('/', function () {
     return view('home');
 });
@@ -70,13 +73,49 @@ Route::prefix('/shop')->group(function () {
     Route::get('/shop',function(){
         return view('shop/shop'); //shop.blade.php
     }); 
-    Route::get('/',function(){
-        return view('shop/');
+    Route::get('/single-product-extended',function(){
+        return view('shop/single-product-extended'); //single-product-extended.blade.php
     }); 
-
+    Route::get('/single-product-fullwidth',function(){
+        return view('shop/single-product-fullwidth'); //single-product-fullwidth.blade.php
+    }); 
+    Route::get('/single-product-sidebar',function(){
+        return view('shop/single-product-sidebar'); //single-product-sidebar.blade.php
+    }); 
+    Route::get('/track-your-order',function(){
+        return view('shop/track-your-order'); //track-your-order.blade.php
+    }); 
+    Route::get('/wishlist',function(){
+        return view('shop/wishlist'); //wishlist.blade.php
+    }); 
 });
 
 
 Route::get('/faq', function () {
     return view('faq'); //faq.blade.php
+});
+Route::get('/store-directory', function () {
+    return view('store-directory'); //store-directory.blade.php
+});
+Route::get('/terms-and-conditions', function () {
+    return view('terms-and-conditions'); //terms-and-conditions.blade.php
+});
+
+
+
+/* Backend/Admin Routes */
+
+Route::prefix('admin')->group(function () {
+    Route::get('/login', function () {
+        // Matches The "/admin/login" URL
+        return view('admin/login'); //login.blade.php
+    });
+    Route::get('/', function () {
+        // Matches The "/admin/login" URL
+        return view('admin/login'); //login.blade.php
+    });
+    Route::get('/dashboard', function () {
+        // Matches The "/admin/login" URL
+        return view('admin/dashboard'); //dashboard.blade.php
+    });
 });
