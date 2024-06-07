@@ -118,4 +118,17 @@ Route::prefix('admin')->group(function () {
         // Matches The "/admin/login" URL
         return view('admin/dashboard'); //dashboard.blade.php
     });
+
+
+    // only for practics
+
+    Route::get('/general', function () {
+        // Matches The "/admin/login" URL
+        return view('admin/general'); //general.blade.php
+    });
+    Route::get('/', function () {
+        // Matches The "/admin/login" URL
+        return view('admin/'); //.blade.php
+    });
 });
+
