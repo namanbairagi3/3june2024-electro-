@@ -2,12 +2,16 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AuthController;
+
 
 /* Frontend Routes */
 
 Route::get('/', function () {
     return view('home');
 });
+
+Route::post('/login',[AuthController::class,'login'])->name('login');
 
 Route::prefix('/shop')->group(function () {
     Route::get('/cart',function(){
@@ -105,14 +109,14 @@ Route::get('/terms-and-conditions', function () {
 
 /* Backend/Admin Routes */
 
-Route::prefix('admin')->group(function () {
-    Route::get('/login', function () {
-        // Matches The "/admin/login" URL
-        return view('admin/login'); //login.blade.php
-    });
+Route::prefix('admin')->group(function () { // /admin/login
     Route::get('/', function () {
         // Matches The "/admin/login" URL
-        return view('admin/login'); //login.blade.php
+        return view('admin.login'); //login.blade.php
+    });
+    Route::get('/login', function () {
+        // Matches The "/admin/login" URL
+        return view('admin.login'); //login.blade.php
     });
     Route::get('/dashboard', function () {
         // Matches The "/admin/login" URL
