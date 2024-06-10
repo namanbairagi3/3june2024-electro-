@@ -39,7 +39,7 @@
         </div>
 
         <x-header/>
-
+        
         <x-aside firstname='Abhishek' lastname='Bairagi'/>
 
         <!-- Content Wrapper. Contains page content -->

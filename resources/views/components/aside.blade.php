@@ -12,11 +12,11 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="{{url('/')}}/dist/img/user2-160x160.jpeg" class="img-circle elevation-2"
+                <img src="{{url('/')}}/dist/img/user2-160x160.jpg" class="img-circle elevation-2"
                     alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">{{$firstname.' '.$lastname}}</a>
+                <a href="#" class="d-block">{{ session('firstname') }} {{ session('lastname') }}</a>
             </div>
         </div>
 
@@ -38,7 +38,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
-       with font-awesome or any other icon font library -->
+        with font-awesome or any other icon font library -->
                 <li class="nav-item menu-open">
                     <a href="#" class="nav-link active">
                         <i class="nav-icon fas fa-tachometer-alt"></i>

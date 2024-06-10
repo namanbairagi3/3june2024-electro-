@@ -118,10 +118,9 @@ Route::prefix('admin')->group(function () { // /admin/login
         // Matches The "/admin/login" URL
         return view('admin.login'); //login.blade.php
     });
-    Route::get('/dashboard', function () {
-        // Matches The "/admin/login" URL
-        return view('admin/dashboard'); //dashboard.blade.php
-    });
+    Route::get('/logout', [AuthController::class,'logout']);
+    Route::get('/dashboard', [AuthController::class,'dashboard']);
+    
 
 
     // only for practics
