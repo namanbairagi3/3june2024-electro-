@@ -66,7 +66,8 @@
                         <!-- Content -->
                         <div class="js-scrollbar u-sidebar__body">
                             <div class="u-sidebar__content u-header-sidebar__content">
-                                <form class="js-validate">
+                                <form class="js-validate" method="GET" action="">
+                                    @csrf
                                     <!-- Login -->
                                     <div id="login" data-target-group="idForm">
                                         <!-- Title -->
@@ -154,7 +155,20 @@
                                         </div>
                                         <!-- End Login Buttons -->
                                     </div>
+                                </form>
 
+                                <form class="js-validate" method="POST" action="{{route('customerRegister')}}">
+                                    @csrf
+                                    @if (Session::has('success'))
+                                        <div class="alert alert-success">
+                                            {{Session::get('success')}}
+                                        </div>
+                                    @endif
+                                    @if (Session::has('failed'))
+                                    <div class="alert alert-danger">
+                                        {{Session::get('failed')}}
+                                    </div>
+                                    @endif
                                     <!-- Signup -->
                                     <div id="signup" style="display: none; opacity: 0;" data-target-group="idForm">
                                         <!-- Title -->
@@ -180,6 +194,11 @@
                                                         data-msg="Please enter a valid email address."
                                                         data-error-class="u-has-error" data-success-class="u-has-success">
                                                 </div>
+                                                @if ($errors->has('email'))
+                                                    <div>
+                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                         <!-- End Input -->
@@ -200,6 +219,11 @@
                                                         data-msg="Your password is invalid. Please try again."
                                                         data-error-class="u-has-error" data-success-class="u-has-success">
                                                 </div>
+                                                @if ($errors->has('password'))
+                                                    <div>
+                                                        <strong>{{ $errors->first('password') }}</strong>
+                                                    </div>
+                                                @endif
                                             </div>
                                         </div>
                                         <!-- End Input -->
@@ -230,7 +254,7 @@
                                                 class="btn btn-block btn-sm btn-primary transition-3d-hover">Get
                                                 Started</button>
                                         </div>
-
+    
                                         <div class="text-center mb-4">
                                             <span class="small text-muted">Already have an account?</span>
                                             <a class="js-animation-link small text-dark" href="javascript:;"
@@ -259,52 +283,52 @@
                                         <!-- End Login Buttons -->
                                     </div>
                                     <!-- End Signup -->
+                                </form>
+                                <!-- Forgot Password -->
+                                <div id="forgotPassword" style="display: none; opacity: 0;" data-target-group="idForm">
+                                    <!-- Title -->
+                                    <header class="text-center mb-7">
+                                        <h2 class="h4 mb-0">Recover Password.</h2>
+                                        <p>Enter your email address and an email with instructions will be sent to you.
+                                        </p>
+                                    </header>
+                                    <!-- End Title -->
 
-                                    <!-- Forgot Password -->
-                                    <div id="forgotPassword" style="display: none; opacity: 0;" data-target-group="idForm">
-                                        <!-- Title -->
-                                        <header class="text-center mb-7">
-                                            <h2 class="h4 mb-0">Recover Password.</h2>
-                                            <p>Enter your email address and an email with instructions will be sent to you.
-                                            </p>
-                                        </header>
-                                        <!-- End Title -->
-
-                                        <!-- Form Group -->
-                                        <div class="form-group">
-                                            <div class="js-form-message js-focus-state">
-                                                <label class="sr-only" for="recoverEmail">Your email</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" id="recoverEmailLabel">
-                                                            <span class="fas fa-user"></span>
-                                                        </span>
-                                                    </div>
-                                                    <input type="email" class="form-control" name="email" id="recoverEmail"
-                                                        placeholder="Your email" aria-label="Your email"
-                                                        aria-describedby="recoverEmailLabel" required
-                                                        data-msg="Please enter a valid email address."
-                                                        data-error-class="u-has-error" data-success-class="u-has-success">
+                                    <!-- Form Group -->
+                                    <div class="form-group">
+                                        <div class="js-form-message js-focus-state">
+                                            <label class="sr-only" for="recoverEmail">Your email</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="recoverEmailLabel">
+                                                        <span class="fas fa-user"></span>
+                                                    </span>
                                                 </div>
+                                                <input type="email" class="form-control" name="email" id="recoverEmail"
+                                                    placeholder="Your email" aria-label="Your email"
+                                                    aria-describedby="recoverEmailLabel" required
+                                                    data-msg="Please enter a valid email address."
+                                                    data-error-class="u-has-error" data-success-class="u-has-success">
                                             </div>
                                         </div>
-                                        <!-- End Form Group -->
-
-                                        <div class="mb-2">
-                                            <button type="submit"
-                                                class="btn btn-block btn-sm btn-primary transition-3d-hover">Recover
-                                                Password</button>
-                                        </div>
-
-                                        <div class="text-center mb-4">
-                                            <span class="small text-muted">Remember your password?</span>
-                                            <a class="js-animation-link small" href="javascript:;" data-target="#login"
-                                                data-link-group="idForm" data-animation-in="slideInUp">Login
-                                            </a>
-                                        </div>
                                     </div>
-                                    <!-- End Forgot Password -->
-                                </form>
+                                    <!-- End Form Group -->
+
+                                    <div class="mb-2">
+                                        <button type="submit"
+                                            class="btn btn-block btn-sm btn-primary transition-3d-hover">Recover
+                                            Password</button>
+                                    </div>
+
+                                    <div class="text-center mb-4">
+                                        <span class="small text-muted">Remember your password?</span>
+                                        <a class="js-animation-link small" href="javascript:;" data-target="#login"
+                                            data-link-group="idForm" data-animation-in="slideInUp">Login
+                                        </a>
+                                    </div>
+                                </div>
+                                <!-- End Forgot Password -->
+                                
                             </div>
                         </div>
                         <!-- End Content -->
@@ -460,4 +484,4 @@
         });
         </script>
     </body>
-</html>
+</html> 
