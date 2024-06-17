@@ -121,7 +121,7 @@ Route::prefix('admin')->group(function () { // /admin/login
         return view('admin.login'); //login.blade.php
     });
     Route::get('/logout', [AuthController::class,'logout']);
-    Route::get('/dashboard', [AuthController::class,'dashboard']);
+    Route::get('/dashboard', [AuthController::class,'dashboard'])->name('admi_dashboard');
     Route::resource('/category', CategoryController::class);
     
 

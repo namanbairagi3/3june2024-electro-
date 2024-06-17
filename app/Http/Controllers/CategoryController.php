@@ -20,10 +20,11 @@ class CategoryController
 
     /**
      * Show the form for creating a new resource.
+     * Show the form for creating a new category.
      */
     public function create()
     {
-        //
+        return view('admin.category.create');//admin/category/create.blade
     }
 
     /**
@@ -32,6 +33,20 @@ class CategoryController
     public function store(Request $request)
     {
         //
+        $data = $request->only('category_name','description');
+        // ClassName::method();
+
+        Category::create($data);
+
+        return redirect('/admin/category/create');
+        //dd($request->all());
+
+        //I want to store incomming data to categories table
+
+        //1. QueryBUilder
+        //2 Eleqoent ORM (Best Way) // 
+        // Model file
+        return 'store';
     }
 
     /**
@@ -39,7 +54,7 @@ class CategoryController
      */
     public function show(Category $category)
     {
-        //
+           //
     }
 
     /**
