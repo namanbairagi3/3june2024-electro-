@@ -38,6 +38,7 @@ class CategoryController
 
         Category::create($data);
 
+        return back()->with('success', 'category created successfully');
         return redirect('/admin/category/create');
         //dd($request->all());
 

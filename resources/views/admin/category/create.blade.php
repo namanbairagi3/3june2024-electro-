@@ -19,6 +19,12 @@
             <div class="row">
                 <!-- left column -->
                 <div class="col-md-12">
+                    @if (Session::has('success'))
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                               <strong> {{ session::get('success') }} </strong>  
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                    @endif
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
