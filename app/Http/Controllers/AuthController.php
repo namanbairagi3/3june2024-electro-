@@ -20,7 +20,7 @@ class AuthController
         if(Auth::check()){
             //Every function return something
             return view('admin.dashboard');
-        }else{
+        } else {
             return redirect('/admin');
         }
 

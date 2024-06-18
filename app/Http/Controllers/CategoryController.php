@@ -33,6 +33,12 @@ class CategoryController
     public function store(Request $request)
     {
         //
+        $request->validate([
+                            'category_name'=>'required|unique:categories',
+                            'description'=>'',
+                            'cat_image' => 'mimes:jpg,jpeg,png|max:2084',// 2048kb = 2mb
+                          ]); //PHP Associative Array
+
         $data = $request->only('category_name','description');
         // ClassName::method();
 
