@@ -15,6 +15,7 @@ class CustomerAuthController
                                 'password'=>'required|min:8'
                            ]);
 
+
         // User::
         // classObject = new ClassName();
         $userco = new User();

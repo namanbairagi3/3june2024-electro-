@@ -38,9 +38,21 @@ class CategoryController
                             'description'=>'',
                             'cat_image' => 'mimes:jpg,jpeg,png|max:2084',// 2048kb = 2mb
                           ]); //PHP Associative Array
+      
+        
+        // dd($request->file('cat_image'));
+        $file = $request->file('cat_image');
+        $dst='';                  
+        if($file){
+            $path = $file->store('public/cat_images');
+            //The file is comming
+            // Extract the filename from the path
+            $filename = basename($path);
+            $dst='/storage/cat_images/'.$filename;
 
         $data = $request->only('category_name','description');
         // ClassName::method();
+        $data['picture']=$dst;
 
         Category::create($data);
 
@@ -54,6 +66,7 @@ class CategoryController
         //2 Eleqoent ORM (Best Way) // 
         // Model file
         return 'store';
+     }
     }
 
     /**
