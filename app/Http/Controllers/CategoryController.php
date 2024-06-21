@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 
 use function Ramsey\Uuid\v1;
 
-class CategoryController
+// class ChildClass extends ParentClass {}
+// Single inheritance
+// This is an example of a single inheritance
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 
-class CustomerAuthController
+class CustomerAuthController extends Controller
 {
     //
     public function register(Request $request){
