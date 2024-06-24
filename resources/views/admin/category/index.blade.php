@@ -49,7 +49,7 @@
                                                 <img width="100" src="{{ asset('/').ltrim($category->picture,'/') }}" />
                                                 @else
                                                     &#45;
-                                                    &#x2D;
+                                                    &#x2D;          
                                                     -
                                                 @endif
                                             </td>
