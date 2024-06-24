@@ -17,7 +17,17 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category.index');//admin/category/index.blade.php
+        // Get the category for db
+        //1. Querybuilder
+        //2. Eloquent ORM (object returned mapper)
+                  // ClassName::method
+        $categories = Category::all();
+        // dd($categories);
+            
+        // Then pass the category to view
+
+        //return is the last statement for every function
+        return view('admin.category.index', ['categories' =>$categories]);    //admin/category/index.blade.php
         // return 'index';//
     }
 
