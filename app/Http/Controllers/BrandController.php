@@ -32,15 +32,33 @@ class BrandController extends Controller
      */
     public function create()
     {
+        return view('admin.brands.create');   //'create';
         //
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request) // POST method
     {
-        //
+        //dd($request->all());
+       $request->validate([
+                                'brand_name'=>'required|unique:brands',
+                                'brand_logo' => 'mimes:jpg,jpeg,png|max:1024',// 1024kb = 1mb
+                                'seo_meta_title'=>'',
+                                'seo_meta_desc'=>'',
+                            ]); //PHP Associative Array
+        //How you can recieve the incomming data
+        //With $request object
+        //dd($request->all());
+
+        //Store into brands table
+
+        //Eleqouent 
+        $data = $request->only('brand_name','brand_logo','seo_meta_title','seo_meta_desc');
+        //dd($data);
+        Brand::create($data);
+        return back();
     }
 
     /**
