@@ -56,8 +56,8 @@ class BrandController extends Controller
             $path = $file->store('public/brand_images');
             //The file is comming
              // Extract the filename from the path
-            $filename = basename($path);
-            $dst='/storage/brand_images/'.$filename;
+            $filename = basename($path);    
+            $dst='/storage/brand_image/'.$filename;
             //dd( );
         }                  
 
