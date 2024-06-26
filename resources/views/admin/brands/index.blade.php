@@ -7,7 +7,7 @@
                     <h1 class="m-0">All Brands</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6  text-right">
-                    <a href="#" class="btn btn-primary">Add New Brand</a>
+                    <a href="{{route('brands.create')}}" class="btn btn-primary">Add New Brand</a>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -41,8 +41,12 @@
                                     <td>{{$brand['name']}}</td>
                                     <td>{{$brand['logo']}}</td>
                                     <td>
-                                        <button>Edit</button>
-                                        <button>Delete</button>
+                                        <a href="#" class="btn btn-outline-info rounded-circle">
+                                            <i class="fa-regular fa-pen-to-square"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-outline-danger rounded-circle a_delcategory">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
                                     </td>
                                 </tr>
                              @endforeach 

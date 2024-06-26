@@ -41,24 +41,32 @@ class BrandController extends Controller
      */
     public function store(Request $request) // POST method
     {
-        //dd($request->all());
+        // dd($request->all());
        $request->validate([
                                 'brand_name'=>'required|unique:brands',
-                                'brand_logo' => 'mimes:jpg,jpeg,png|max:1024',// 1024kb = 1mb
-                                'seo_meta_title'=>'',
-                                'seo_meta_desc'=>'',
+                                'brand_logo' => 'required|mimes:jpg,jpeg,png|max:2024|dimensions:width=120,height=80',// 2024kb = 1mb
+                                'seo_meta_title'=>'required',
+                                'seo_meta_desc'=>'required|',
                             ]); //PHP Associative Array
-        //How you can recieve the incomming data
-        //With $request object
-        //dd($request->all());
 
-        //Store into brands table
+        //File uploading logic
+        $file = $request->file('brand_logo');
+        $dst='';
+        if($file){
+            $path = $file->store('public/brand_images');
+            //The file is comming
+             // Extract the filename from the path
+            $filename = basename($path);
+            $dst='/storage/brand_images/'.$filename;
+            //dd( );
+        }                  
 
         //Eleqouent 
         $data = $request->only('brand_name','brand_logo','seo_meta_title','seo_meta_desc');
         //dd($data);
+        $data['brand_logo']=$dst;
         Brand::create($data);
-        return back();
+        return back()->with('success','Brand created successfully');
     }
 
     /**
