@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Brand;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
@@ -88,6 +89,24 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        {
+            //Brand::
+            // $dst='/storage/brand_images/'.$filename;
+            //$brand->brand_logo contain the url
+            // Get the filename from the brand's logo URL
+            $filename = basename($brand->brand_logo);
+    
+            // Define the storage path for the logo
+            $storagePath = 'public/brand_images/' . $filename;
+            //dd($storagePath);
+    
+            // Check if the file exists and delete it
+            if (Storage::exists($storagePath)) {
+                Storage::delete($storagePath);
+            }
+            $brand->delete();
+    
+            return back();//
     }
+}
 }

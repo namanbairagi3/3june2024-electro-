@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use function Ramsey\Uuid\v1;
 
@@ -111,6 +112,22 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        //Brand::
+        // $dst='/storage/brand_images/'.$filename;
+        //$brand->brand_logo contain the url
+        // Get the filename from the brand's logo URL
+        $filename = basename($category->picture);
+
+        // Define the storage path for the logo
+        $storagePath = 'public/cat_images/' . $filename;
+        //dd($storagePath);
+
+        // Check if the file exists and delete it
+        if (Storage::exists($storagePath)) {
+            Storage::delete($storagePath);
+        }
+        $category->delete();
+
+        return back();
     }
 }
