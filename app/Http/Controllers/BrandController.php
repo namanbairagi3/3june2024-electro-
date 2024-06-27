@@ -12,18 +12,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = [
-            [
-                'id'=>'1',
-                'name'=>'redmi',
-                'logo'=>''
-            ],
-            [
-                'id'=>'2',
-                'name'=>'LG',
-                'logo'=>''
-            ]
-        ];
+        $brands = Brand::all();// AOO Array of Objects
+        
        return view('admin.brands.index',['brands'=>$brands]);   //'index';
     }
 
@@ -57,7 +47,7 @@ class BrandController extends Controller
             //The file is comming
              // Extract the filename from the path
             $filename = basename($path);    
-            $dst='/storage/brand_image/'.$filename;
+            $dst='/storage/brand_images/'.$filename;
             //dd( );
         }                  
 

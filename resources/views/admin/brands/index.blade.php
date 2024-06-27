@@ -37,9 +37,11 @@
                           <tbody>
                              @foreach($brands as $brand)
                                 <tr>
-                                    <td>{{$brand['id']}}</td>
-                                    <td>{{$brand['name']}}</td>
-                                    <td>{{$brand['logo']}}</td>
+                                    <td>{{$brand->id}}</td>
+                                    <td>{{$brand->brand_name}}</td>
+                                    <td>
+                                        <img src="{{$brand->brand_logo}}"/>
+                                    </td>
                                     <td>
                                         <a href="#" class="btn btn-outline-info rounded-circle">
                                             <i class="fa-regular fa-pen-to-square"></i>

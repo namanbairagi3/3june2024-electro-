@@ -168,6 +168,14 @@
                     }
                 });
         });
+        
+        document.querySelector('img#preview').addEventListener('change', (e)=>{
+            console.log('Hi');
+            const [file] = imgInp.files
+            if (file) {
+                blah.src = URL.createObjectURL(file)
+            }
+        });
 
     </script>
 </body>
