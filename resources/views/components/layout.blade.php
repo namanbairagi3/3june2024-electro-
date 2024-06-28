@@ -45,6 +45,25 @@
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                ...
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    
     <div class="wrapper">
 
         <!-- Preloader -->
@@ -87,6 +106,7 @@
     <script src="{{url('/')}}/plugins/chart.js/Chart.min.js"></script>
     <!-- Sparkline -->
     <script src="{{url('/')}}/plugins/sparklines/sparkline.js"></script>
+    
     <!-- jQuery Knob Chart -->
     <script src="{{url('/')}}/plugins/jquery-knob/jquery.knob.min.js"></script>
     <!-- daterangepicker -->
@@ -142,8 +162,6 @@
         document.querySelector('.a_delcategory').addEventListener('click', (e)=>{
             //Stop reloading
             e.preventDefault();
-
-            console.log('OKOKOKOKOKOK');
             
             
                 Swal.fire({
@@ -166,6 +184,8 @@
                 });
         });
 
+        //object.addEventListener("change", myScript);
+
         document.querySelector('img#preview').addEventListener('change', (e)=>{
             console.log('Hi');
             const [file] = imgInp.files
@@ -175,6 +195,7 @@
         });
 
     </script>
+
 </body>
 
 </html>
