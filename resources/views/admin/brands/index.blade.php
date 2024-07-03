@@ -1,12 +1,13 @@
 <x-layout>
+    
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
-                <div class="col-sm-6 ">
+                <div class="col-sm-6 a_tbdr">
                     <h1 class="m-0">All Brands</h1>
                 </div><!-- /.col -->
-                <div class="col-sm-6  text-right">
+                <div class="col-sm-6 a_tbdr text-right">
                     <a href="{{route('brands.create')}}" class="btn btn-primary">Add New Brand</a>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -40,10 +41,10 @@
                                     <td>{{$brand->id}}</td>
                                     <td>{{$brand->brand_name}}</td>
                                     <td>
-                                        <img src="{{$brand->brand_logo}}"/>
+                                        <img src="{{$brand->brand_logo}}" />
                                     </td>
                                     <td>
-                                        <a href="/admin/brands/{{$brand->id}}/edit" class="btn btn-outline-info rounded-circle btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <a href="/admin/brands/{{$brand->id}}/edit" class="btn btn-outline-info rounded-circle btn-sm a_viewbrand" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <i class="fa-regular fa-eye"></i>   
                                         </a>
                                         <a href="/admin/brands/{{$brand->id}}/edit" class="btn btn-outline-info rounded-circle btn-sm">
@@ -68,4 +69,5 @@
             </div>
         </div>
     </section>
+    
 </x-layout>

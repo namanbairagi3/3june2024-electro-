@@ -5,8 +5,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CustomerAuthController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\BrandController;
 use App\Http\Middleware\AdminAuth;
+
+
 use App\Models\Brand;
 
 /* Frontend Routes */
@@ -125,8 +128,11 @@ Route::prefix('admin')->middleware(AdminAuth::class)->group(function () { // /ad
     
     Route::get('/logout',[AuthController::class,'logout']);
     Route::get('/dashboard', [AuthController::class,'dashboard'])->name('admin_dashboard');
+
     Route::resource('category', CategoryController::class);
     Route::resource('brands', BrandController::class);
+    Route::resource('products',ProductController::class);
+    
     
 
 
