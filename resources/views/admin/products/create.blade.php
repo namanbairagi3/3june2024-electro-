@@ -50,21 +50,21 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Brand</label>
-                                            {{-- <select name="brand_id" class="select2" style="width: 100%;">
+                                            <select name="brand_id" class="select2" style="width: 100%;">
                                                 @foreach($brands as $brand)
                                                     <option>{{$brand->brand_name}}</option>
                                                 @endforeach
-                                            </select> --}}
+                                            </select>
                                         </div>  
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label>Category</label>
-                                            {{-- <select name="category_id" class="select2" style="width: 100%;">
+                                            <select name="category_id" class="select2" style="width: 100%;">
                                                 @foreach($categories as $category)
                                                     <option>{{$category->category_name}}</option>
                                                 @endforeach
-                                            </select> --}}
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col">
