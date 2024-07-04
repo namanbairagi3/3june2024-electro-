@@ -239,11 +239,11 @@
         $(document).ready(function() {
             $('.select2').select2();
         });
-    </script>
-    <script>
+
         var editor1cfg = {}
         editor1cfg.toolbar = "basic";
         var editor1 = new RichTextEditor("#product_desc", editor1cfg);
+    
     </script>
 </body>
 </html>
