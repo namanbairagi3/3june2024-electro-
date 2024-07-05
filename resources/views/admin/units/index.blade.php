@@ -8,7 +8,7 @@
                     <h1 class="m-0">All Units</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6 a_tbdr text-right">
-                    <a href="{{route('brands.create')}}" class="btn btn-primary">Add New Unit</a>
+                    <a href="{{route('unit.create')}}" class="btn btn-primary">Add New Unit</a>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -30,13 +30,31 @@
                           <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Name</th>
-                                <th>Logo(s)</th>
-                                <th>Options</th>
+                                <th>Unit Name</th>
+                                <th>Unit Description</th>
+                                <th>Action</th>
                             </tr>
                           </thead>
                           <tbody>
-                             
+                             @foreach($units as $unit)
+                                <tr>
+                                    <td>{{ $unit->id }}</td>
+                                    <td>{{ $unit->unit_name }}</td>
+                                    <td>{{ $unit->unit_desc }}(s)</td>
+                                    <td>
+                                        <td>
+                                            <a href="/admin/unit/{{$unit->id}}/view" class="btn btn-outline-info rounded-circle btn-sm a_viewunit" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                                <i class="fa-regular fa-eye"></i>   
+                                            </a>
+                                                <a href="/admin/unit/{{$unit->id}}/edit" class="btn btn-outline-info rounded-circle btn-sm">
+                                                    <i class="fa-regular fa-pen-to-square"></i>   
+                                                </a>
+                                                
+                                                
+                                        </td>
+                                    </td>
+                                </tr>
+                            @endforeach;
                           </tbody>
                         </table>
                       </div>

@@ -16,9 +16,26 @@ class AuthController
     //3. Method
 
     public function dashboard(){
-     
-        return view('admin.dashboard'); 
+        // Categories
+        $categories = \App\Models\Category::all();
+        // Brands
+        $brands = \App\Models\Brand::all();
+        // Units
+        $units = \App\Models\Unit::all();
+        // Products
+        $products = \App\Models\Product::all();
 
+        // Categories
+        // Brands
+        // Units
+        // Products
+        return view('admin.dashboard',[
+                                            'categories'=>count($categories),
+                                            'brands'=>count($brands),
+                                            'units'=>count($units),
+                                            'products'=>count($products)
+                                      ]);
+                                      
     }
     //We can give any name of the class object
     public function login(Request $request){

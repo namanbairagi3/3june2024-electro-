@@ -12,7 +12,8 @@ class UnitController extends Controller
      */
     public function index()
     {
-       return view('admin.units.index'); //
+        $units = Unit::all();
+       return view('admin.units.index',['units'=> $units]); //
     }
 
     /**
@@ -20,7 +21,7 @@ class UnitController extends Controller
      */
     public function create()
     {
-        //
+       return view('admin.units.create');//
     }
 
     /**
@@ -28,7 +29,7 @@ class UnitController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       return 'store'; //
     }
 
     /**
