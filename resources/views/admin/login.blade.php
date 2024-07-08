@@ -18,10 +18,11 @@
 <div class="login-box">
   <div class="login-logo">
     <a href="/index2.html"></a>
-      @isset($app_logo)
-      <img width="200" src="{{$app_logo}}" />
-      @endisset
-    
+    @isset($app_logo)
+    <img width="200" src="{{$app_logo}}" />
+        
+    @endisset
+      
   </div>
   <!-- /.login-logo -->
   <div class="card">

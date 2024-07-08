@@ -67,7 +67,7 @@ class SystemInfoController extends Controller
         //I can write all login inside controller
         $app_logo = $systemInfo->where('meta_name', 'app_logo')->first()->meta_value;
        
-        return view('admin.login',['app_logo'=>$app_logo]);
+        return view('admin.login',['app_logo' => $app_logo]);
     }
 
 }
