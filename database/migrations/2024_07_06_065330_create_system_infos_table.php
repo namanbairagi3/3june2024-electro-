@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('system_infos', function (Blueprint $table) {
             $table->id();
             $table->string('meta_name')->nullable()->unique();
-            $table->string('meta_value')->nullable();
+            $table->text('meta_value')->nullable();
             $table->timestamps();
         });
     }

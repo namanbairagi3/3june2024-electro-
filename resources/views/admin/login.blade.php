@@ -17,7 +17,11 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="/index2.html"><b>Admin</b>LTE</a>
+    <a href="/index2.html"></a>
+      @isset($app_logo)
+      <img width="200" src="{{$app_logo}}" />
+      @endisset
+    
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -106,4 +110,4 @@
 <!-- AdminLTE App -->
 <script src="/dist/js/adminlte.min.js"></script>
 </body>
-</html>
+</html>   
