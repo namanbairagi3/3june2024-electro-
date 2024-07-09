@@ -17,11 +17,9 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="/index2.html"></a>
-    @isset($app_logo)
-    <img width="200" src="{{$app_logo}}" />
-        
-    @endisset
+    <a href="/index2.html">
+    <img width="120" src="{{$appData['app_logo']}}" />
+    </a>
       
   </div>
   <!-- /.login-logo -->

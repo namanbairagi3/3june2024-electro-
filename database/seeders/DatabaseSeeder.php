@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use App\Models\SystemInfo;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -22,6 +23,22 @@ class DatabaseSeeder extends Seeder
             'password' => 'admin1@gmail.com',
             'role' => 'admin',
 
+        ]);
+
+        // Create system info records using createMany
+        SystemInfo::factory()->createMany([
+            [
+                'meta_name' => 'app_name',
+                'meta_value' => 'Amazon',
+            ],
+            [
+                'meta_name' => 'app_version',
+                'meta_value' => '1.0.0',
+            ],
+            [
+                'meta_name' => 'app_logo',
+                'meta_value' => 'https://pngimg.com/uploads/amazon/amazon_PNG1.png',
+            ],
         ]);
     }
 }

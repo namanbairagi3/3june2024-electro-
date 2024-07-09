@@ -25,7 +25,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form method="GET" action="" enctype="multipart/form-data">
+                        <form method="POST" action="{{route('products.store')}}" enctype="multipart/form-data">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
@@ -39,12 +39,12 @@
                                 <div class="row">
                                     <div class="col">
                                         <div class="form-group">
-                                            <label for="unit">Unit</label>
-                                            <select name="unit" id="unit" class="select2" style="width: 100%;">
-                                                <option selected>KG</option>
-                                                <option>Pices</option>
-                                                <option>Ltr</option>
-                                            </select>
+                                            <label for="unit_id">Unit</label>
+                                            <select name="unit_id" id="unit_id" class="select2" style="width: 100%;">
+                                                @foreach($units as $unit)
+                                                <option value="{{$unit->id}}"> {{$unit->unit_name}}</option>
+                                                @endforeach
+                                            </select> 
                                         </div>  
                                     </div>
                                     <div class="col">
@@ -52,17 +52,17 @@
                                             <label>Brand</label>
                                             <select name="brand_id" class="select2" style="width: 100%;">
                                                 @foreach($brands as $brand)
-                                                    <option>{{$brand->brand_name}}</option>
+                                                    <option value="{{$brand->id}}">{{$brand->brand_name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>  
                                     </div>
-                                    <div class="col">
+                                    <div class="col">  
                                         <div class="form-group">
                                             <label>Category</label>
                                             <select name="category_id" class="select2" style="width: 100%;">
                                                 @foreach($categories as $category)
-                                                    <option>{{$category->category_name}}</option>
+                                                    <option value="{{$category->category_id}}">{{$category->category_name}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -70,19 +70,19 @@
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="mrp">MRP</label>
-                                            <input id="mrp" name="mrp" type="number" class="form-control"/>
+                                            <input id="mrp" name="mrp" type="number" class="form-control" min="1" max="999999"/>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="sell_price">Sell Price</label>
-                                            <input id="sell_price" name="sell_price" type="number" class="form-control"/>
+                                            <input id="sell_price" name="sell_price" type="number" class="form-control" min="1" max="999999"/>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="qty_available">Available Quantity</label>
-                                            <input id="qty_available" name="qty_available" type="number" class="form-control"/>
+                                            <input id="qty_available" name="qty_available" type="number" class="form-control" min="1" max="999999"/>
                                         </div>
                                     </div>
                                 </div>
