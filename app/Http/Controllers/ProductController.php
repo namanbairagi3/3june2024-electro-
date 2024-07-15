@@ -15,7 +15,15 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        //Get the product data from models
+        //1.Querybuilder
+        //2.QueryBuilder
+        //3. factory method
+        $products = Product::all();
+        //dd($products);
+        //Then pass the product to view
+        return view('admin.products.index', ['products'=>$products]);
+        
     }
 
     /**
@@ -44,7 +52,7 @@ class ProductController extends Controller
         //1. Client Side Javascript
 
         //2. ServerSide PHP/Laravel Fraemwork MVC
-        
+
         $request->validate([
             'product_name'=>'required',
             'product_desc'=>'required',
