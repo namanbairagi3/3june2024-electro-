@@ -20,24 +20,6 @@ class AppServiceProvider extends ServiceProvider
     /**
      * Bootstrap any application services.
      */
-<<<<<<< HEAD
-    // public function boot(): void
-    // {
-    //     //
-    
-    //     $app_name = SystemInfo::where('meta_name', 'app_name')->first()->meta_value;
-    //     $app_version = SystemInfo::where('meta_name', 'app_version')->first()->meta_value;
-    //     $app_logo = SystemInfo::where('meta_name', 'app_logo')->first()->meta_value;
-
-    //     $data = [
-    //         'app_name' =>  "$app_name",
-    //         'app_version' => "$app_version",
-    //         'app_logo' => "$app_logo"
-    //     ];
-    
-    //     View::share('appData', $data);
-    // }
-=======
     public function boot(): void
     {
         //
@@ -54,5 +36,4 @@ class AppServiceProvider extends ServiceProvider
     
         View::share('appData', $data);
     }
->>>>>>> 01688d8e76ddd94d9467a28d7f51de985622649b
 }
