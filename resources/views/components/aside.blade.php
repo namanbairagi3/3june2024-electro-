@@ -3,7 +3,11 @@
     <!-- Brand Logo -->
     <a href="{{route('admin_dashboard')}}" class="brand-link">
         <span class="d-block brand-text font-weight-light text-center">
+<<<<<<< HEAD
             {{-- <img width="120" src="{{$appData['app_logo']}}" /> --}}
+=======
+            <img width="120" src="{{$appData['app_logo']}}" />
+>>>>>>> 01688d8e76ddd94d9467a28d7f51de985622649b
         </span>
     </a>
 
